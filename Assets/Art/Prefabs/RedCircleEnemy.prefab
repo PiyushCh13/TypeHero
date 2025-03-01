@@ -67,15 +67,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Gaming
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ae179e77823f82a4280468da9764023d, type: 2}
-  m_sharedMaterial: {fileID: 3208296511809880485, guid: ae179e77823f82a4280468da9764023d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0ee702e29aea1b641858643dc8743047, type: 2}
+  m_sharedMaterial: {fileID: -1930714387509521475, guid: 0ee702e29aea1b641858643dc8743047, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285229931
-  m_fontColor: {r: 0.4188679, g: 0.4188679, b: 0.4188679, a: 1}
+    rgba: 4288124823
+  m_fontColor: {r: 0.5924529, g: 0.5924529, b: 0.5924529, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -225,4 +225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900c63fa8f135c244b5251357e963739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 2
+  enemySpeed: 4
+  wordText: {fileID: 0}
+  defaultTextColor:
+    serializedVersion: 2
+    rgba: 4285229931
+  explosionVFX: {fileID: 8509520811976504845, guid: 7260cd9bff339d1479e6865f40e09367, type: 3}

@@ -3,13 +3,27 @@ using UnityEngine;
 
 public class CircleEnemy : MonoBehaviour
 {
+    [Header("Player")]
     private GameObject player;
-    public float enemySpeed;
-
     private float player_Distance;
+
+    [Header("Enemy Attributes")]
+    public float enemySpeed;
+    public float distanceBeforeDeactivation;
+
+    [Header("Enemy Components")]
     private RectTransform rectTransform;
-    public TMP_Text wordText;
+
+    [Header("Managers")]
     private WordManager wordManager;
+    private AudioManager audioManager;
+
+    [Header("Enemy Text")]
+    public TMP_Text wordText;
+    [SerializeField] private Color32 defaultTextColor;
+
+    [Header("VFX")]
+    public GameObject explosionVFX;
 
     void Start()
     {
@@ -17,6 +31,7 @@ public class CircleEnemy : MonoBehaviour
         wordManager = GameObject.Find("WordManager").GetComponent<WordManager>();
         rectTransform = GetComponent<RectTransform>();
         wordText = GetComponentInChildren<TMP_Text>();
+        wordText.color = defaultTextColor;
         SetWord(wordText);
     }
 
@@ -27,9 +42,10 @@ public class CircleEnemy : MonoBehaviour
         
         player_Distance = Vector3.Distance(player.transform.position, transform.position);
 
-        if (player_Distance < 20f)
+        if (player_Distance < distanceBeforeDeactivation)
         {
             DeactivateEnemy(this.gameObject);
+            player.GetComponent<Player>().TakeDamage(10);
         }
     }
 
@@ -41,11 +57,21 @@ public class CircleEnemy : MonoBehaviour
 
     public void DeactivateEnemy(GameObject enemy)
     {
+        Instantiate(explosionVFX, enemy.transform.position, Quaternion.identity);
         enemy.SetActive(false);
+        SetWord(wordText);
+        player.GetComponent<Player>().currentKeyword = "";
+        player.GetComponent<Player>().currentEnemy = null;
+
     }
 
     private void SetWord(TMP_Text text)
     {
         text.text = wordManager.GetRandomWord();
+    }
+
+    public void SetSpeed(float speed)
+    {
+        enemySpeed = speed;
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4c16540388233dd439cac3030113d8eb
+guid: fc1703b84afec5143b5479b8ef1535b3
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Nexa
+  - Gibson
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
