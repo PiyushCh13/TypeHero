@@ -134,7 +134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5268978
 RectTransform:
   m_ObjectHideFlags: 0
@@ -363,7 +363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &112598251
 RectTransform:
   m_ObjectHideFlags: 0
@@ -420,7 +420,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 522.1, y: 535.93}
+  m_SizeDelta: {x: 341.85, y: 350.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &407696020
 MonoBehaviour:
@@ -556,7 +556,7 @@ MonoBehaviour:
   currentKeyword: 
   typedTextColor:
     serializedVersion: 2
-    rgba: 4280295456
+    rgba: 4278190080
   healthSlider: {fileID: 677388399}
   currentText: {fileID: 695082913}
   killCount: {fileID: 1531305458}
@@ -692,7 +692,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1035,8 +1035,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -16}
-  m_SizeDelta: {x: 1108.3901, y: 83.44}
+  m_AnchoredPosition: {x: 0, y: -30}
+  m_SizeDelta: {x: 1920, y: 251.03}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &695082913
 MonoBehaviour:
@@ -1058,7 +1058,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: WORD
+  m_text: Keyboard warriors, assemble! Time to prove your worth!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d60ccf55de187b544aff3520242311ce, type: 2}
   m_sharedMaterial: {fileID: -6387511856332783820, guid: d60ccf55de187b544aff3520242311ce, type: 2}
@@ -1067,8 +1067,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1013935983
-  m_fontColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.23529412}
+    rgba: 1010251575
+  m_fontColor: {r: 0.21509439, g: 0.21509439, b: 0.21509439, a: 0.23529412}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1088,12 +1088,12 @@ MonoBehaviour:
   m_fontSize: 75
   m_fontSizeBase: 75
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 75
   m_fontStyle: 16
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1291,8 +1291,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1041628566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1460,7 +1460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1291213952
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1515,7 +1515,7 @@ RectTransform:
   m_Father: {fileID: 880452951}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -2.4999847, y: 0}
   m_SizeDelta: {x: 5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2308,7 +2308,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1892579509
 Canvas:
   m_ObjectHideFlags: 0
@@ -2318,7 +2318,7 @@ Canvas:
   m_GameObject: {fileID: 1892579506}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -2340,8 +2340,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892579506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.010003443, y: 0.010003443, z: 0.010003443}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1291213952}
@@ -2353,8 +2353,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1079.6283}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1892579511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2371,7 +2371,18 @@ MonoBehaviour:
   gameOverPanel: {fileID: 1778803627}
   UIPanel: {fileID: 5268977}
   gameplayPanel: {fileID: 1291213951}
-  isGameStarted: 1
+  isGameStarted: 0
+  preGameWords:
+  - Your keyboard is shaking... are you even ready?
+  - Type fast, or be embarrassed forever!
+  - If you fail, we will screenshot it.
+  - Your typing skills will be judged... harshly.
+  - Destroy these words before they destroy your ego.
+  - Welcome to the battlefield of letters. Try not to cry.
+  - Keyboard warriors, assemble! Time to prove your worth!
+  - If you miss a letter, you owe us 10 push-ups.
+  - "Auto-correct won\u2019t save you now."
+  - This is a skill issue waiting to happen.
 --- !u!1 &1911745940
 GameObject:
   m_ObjectHideFlags: 0

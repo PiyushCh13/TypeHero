@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Gameplay Components")]
     public bool isGameStarted;
+    public string[] preGameWords;
 
     void Start()
     {
@@ -27,6 +28,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public string GetWittyWords()
+    {
+        return preGameWords[Random.Range(0, preGameWords.Length)];
+    }
+
     public void StartGame()
     {
         Time.timeScale = 1;
@@ -38,11 +44,12 @@ public class UIManager : MonoBehaviour
 
     public void GameOver()
     {
-        Time.timeScale = 0;
-        isGameStarted = false;
         gameOverPanel.SetActive(true);
         UIPanel.SetActive(false);
         gameplayPanel.SetActive(false);
+        startPanel.SetActive(false);
+        Time.timeScale = 0;
+        isGameStarted = false;
     }
 
     public void RestartGame()

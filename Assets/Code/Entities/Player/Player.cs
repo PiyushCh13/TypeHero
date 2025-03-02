@@ -1,7 +1,10 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +27,7 @@ public class Player : MonoBehaviour
     public Slider healthSlider;
     public TMP_Text currentText;
     public TMP_Text killCount;
+    public HashSet<int> coloredIndices = new HashSet<int>();
 
     [Header("Gameplay Components")]
     public UIManager uIManager;
@@ -31,6 +35,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         UpdateUI();
+        currentText.text = uIManager.GetWittyWords();
     }
 
     void Update()
@@ -40,28 +45,49 @@ public class Player : MonoBehaviour
             if (!string.IsNullOrEmpty(Input.inputString))
             {
                 currentKey = Input.inputString[0];
-                FindCurrentEnemy(currentKey);
+                CheckForNearestEnemy(currentKey);
                 ChangeWordColor(currentKey);
             }
         }
     }
 
-    void FindCurrentEnemy(char currentKey)
+    public void CheckForNearestEnemy(char key)
     {
-        if (currentEnemy == null)
+        if (currentEnemy == null || !currentEnemy.gameObject.activeInHierarchy)
         {
-            foreach (GameObject enemy in enemyPoolManager.activeEnemiesList)
+            CircleEnemy nearestEnemy = null;
+            float closestDistance = float.MaxValue;
+
+            Vector3 playerWorldPos = transform.position;
+
+            foreach (GameObject enemy in enemyPoolManager.activeEnemiesList.ToList())
             {
+                if (enemy == null || !enemy.activeInHierarchy)
+                {
+                    enemyPoolManager.activeEnemiesList.Remove(enemy);
+                    continue;
+                }
+
                 CircleEnemy circleEnemy = enemy.GetComponent<CircleEnemy>();
 
-                if (circleEnemy != null)
+                if (circleEnemy.wordText.text.Length > 0 && circleEnemy.wordText.text[0] == key)
                 {
-                    if (circleEnemy.wordText.text[0] == currentKey)
+                    Vector3 enemyWorldPos = circleEnemy.transform.position;
+                    float distance = Vector3.Distance(playerWorldPos, enemyWorldPos);
+
+                    if (distance < closestDistance || (distance == closestDistance && circleEnemy.GetInstanceID() < nearestEnemy.GetInstanceID()))
                     {
-                        currentEnemy = circleEnemy;
-                        currentText.text = currentEnemy.wordText.text;
+                        closestDistance = distance;
+                        nearestEnemy = circleEnemy;
                     }
+
                 }
+            }
+
+            if (nearestEnemy != null)
+            {
+                currentEnemy = nearestEnemy;
+                currentText.text = currentEnemy.wordText.text;
             }
         }
     }
@@ -76,12 +102,6 @@ public class Player : MonoBehaviour
         textMeshPro.ForceMeshUpdate();
 
         bool letterAdded = false;
-        Color32[] newVertexColors = new Color32[textInfo.meshInfo[0].colors32.Length];
-
-        for (int i = 0; i < textInfo.meshInfo.Length; i++)
-        {
-            newVertexColors = textInfo.meshInfo[i].colors32.ToArray();
-        }
 
         for (int i = 0; i < textInfo.characterCount; i++)
         {
@@ -89,39 +109,40 @@ public class Player : MonoBehaviour
 
             if (!charInfo.isVisible) continue;
 
-            if (charInfo.character == letter && !letterAdded && currentKeyword.Length < currentEnemy.wordText.text.Length)
+            int vertexIndex = charInfo.vertexIndex;
+            Color32[] vertexColors = textInfo.meshInfo[charInfo.materialReferenceIndex].colors32;
+
+            if (coloredIndices.Contains(i))
             {
-                int nextIndex = currentKeyword.Length;
-
-                if (i == nextIndex)
+                for (int j = 0; j < 4; j++)
                 {
-                    currentKeyword += letter;
-                    letterAdded = true;
-
-                    int vertexIndex = charInfo.vertexIndex;
-
-                    for (int j = 0; j < 4; j++)
-                    {
-                        newVertexColors[vertexIndex + j] = typedTextColor;  // Change color and store
-                    }
+                    vertexColors[vertexIndex + j] = typedTextColor;
                 }
             }
-        }
 
-        // Apply the stored colors
-        for (int i = 0; i < textInfo.meshInfo.Length; i++)
-        {
-            textInfo.meshInfo[i].colors32 = newVertexColors;
+            if (charInfo.character == letter && !letterAdded && currentKeyword.Length == i)
+            {
+                currentKeyword += letter;
+                letterAdded = true;
+                coloredIndices.Add(i);
+
+                for (int j = 0; j < 4; j++)
+                {
+                    vertexColors[vertexIndex + j] = typedTextColor;
+                }
+            }
         }
 
         textMeshPro.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
 
         if (currentKeyword == currentEnemy.wordText.text)
         {
-            currentEnemy.DeactivateEnemy(currentEnemy.gameObject);
+            currentEnemy.DeactivateEnemy();
             IncreaseKillCount();
         }
     }
+
+
 
     public void UpdateUI()
     {
@@ -134,7 +155,7 @@ public class Player : MonoBehaviour
         health -= damage;
         UpdateUI();
 
-        if(health <= 0)
+        if (health <= 0)
         {
             uIManager.GameOver();
         }
@@ -144,5 +165,24 @@ public class Player : MonoBehaviour
     {
         killCounter++;
         UpdateUI();
+    }
+
+    public IEnumerator Shake(float duration, float magnitude)
+    {
+        Vector3 originalPosition = Camera.main.transform.localPosition;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float x = UnityEngine.Random.Range(-1f, 1f) * magnitude;
+            float y = UnityEngine.Random.Range(-1f, 1f) * magnitude;
+
+            Camera.main.transform.localPosition = originalPosition + new Vector3(x, y, 0);
+
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        Camera.main.transform.localPosition = originalPosition;
     }
 }

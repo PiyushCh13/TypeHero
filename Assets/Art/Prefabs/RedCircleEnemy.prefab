@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 124}
-  m_SizeDelta: {x: 780, y: 110}
+  m_SizeDelta: {x: 1553.539, y: 110}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &3021406432355318533
 CanvasRenderer:
@@ -92,13 +92,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 140
+  m_fontSizeBase: 140
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -225,9 +225,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900c63fa8f135c244b5251357e963739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 4
+  enemySpeed: 3
+  distanceBeforeDeactivation: 15
+  enemyPoolManager: {fileID: 0}
   wordText: {fileID: 0}
   defaultTextColor:
     serializedVersion: 2
     rgba: 4285229931
+  midGameMessages:
+  - "Nice! But don\u2019t get cocky."
+  - More words, more pain!
+  - You're still slow. Pick up the pace!
+  - One down... a million to go!
+  - Wow, even a snail types faster than you.
+  - That was easy. The next one won't be.
+  - Keep going! Your keyboard loves the abuse.
+  - "Hope your fingers don\u2019t cramp up!"
+  - Is that the best you can do?
+  - Speed up! Even grandma types faster!
   explosionVFX: {fileID: 8509520811976504845, guid: 7260cd9bff339d1479e6865f40e09367, type: 3}

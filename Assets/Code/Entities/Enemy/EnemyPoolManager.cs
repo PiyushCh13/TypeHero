@@ -6,7 +6,7 @@ using System.Linq;
 public class EnemyPoolManager : MonoBehaviour
 {
     [Header("Pool Settings")]
-    private int poolSize = 50;
+    private int poolSize = 100;
     private GameObject[] pool;
 
     [Header("Enemy List")]
@@ -29,7 +29,8 @@ public class EnemyPoolManager : MonoBehaviour
             pool[i].SetActive(false);
         }
 
-        InvokeRepeating("GetEnemy", 0, 5);
+        UpdateList();
+        InvokeRepeating("InstantiateEnemy", 0, 4);
     }
 
     void Update()
@@ -37,7 +38,7 @@ public class EnemyPoolManager : MonoBehaviour
         activeEnemiesList = activeEnemies.ToList();
     }
 
-    private GameObject GetEnemy()
+    public void UpdateList()
     {
         inactiveEnemies.Clear();
         activeEnemies.Clear();
@@ -53,11 +54,15 @@ public class EnemyPoolManager : MonoBehaviour
                 activeEnemies.Add(enemy);
             }
         }
+    }
 
+    private GameObject InstantiateEnemy()
+    {
         if (inactiveEnemies.Count > 0)
         {
             GameObject selectedEnemy = inactiveEnemies.ElementAt(Random.Range(0, inactiveEnemies.Count));
             selectedEnemy.transform.position = CalculatePosition();
+            UpdateList();
             selectedEnemy.SetActive(true);
             return selectedEnemy;
         }
