@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public string currentKeyword = "";
     public Color32 typedTextColor;
 
-    private int health = 100;
+    private int health = 75;
     private int killCounter = 0;
 
     [Header("UI Components")]
@@ -62,15 +62,15 @@ public class Player : MonoBehaviour
 
             foreach (GameObject enemy in enemyPoolManager.activeEnemiesList.ToList())
             {
-                if (enemy == null || !enemy.activeInHierarchy)
-                {
-                    enemyPoolManager.activeEnemiesList.Remove(enemy);
-                    continue;
-                }
+                // if (enemy == null || !enemy.activeInHierarchy)
+                // {
+                //     enemyPoolManager.activeEnemiesList.Remove(enemy);
+                //     continue;
+                // }
 
                 CircleEnemy circleEnemy = enemy.GetComponent<CircleEnemy>();
 
-                if (circleEnemy.wordText.text.Length > 0 && circleEnemy.wordText.text[0] == key)
+                if (circleEnemy.wordText.text[0] == key)
                 {
                     Vector3 enemyWorldPos = circleEnemy.transform.position;
                     float distance = Vector3.Distance(playerWorldPos, enemyWorldPos);

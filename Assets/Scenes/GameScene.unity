@@ -188,11 +188,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1778803628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 171}
-  m_SizeDelta: {x: 452.71, y: 80.98}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -320}
+  m_SizeDelta: {x: 452.71, y: 80.97998}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &50168521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,7 +363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &112598251
 RectTransform:
   m_ObjectHideFlags: 0
@@ -995,9 +995,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 935810819}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 75
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 75
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1932,7 +1932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 128}
   m_SizeDelta: {x: 452.71, y: 80.98}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1597611085
@@ -2172,7 +2172,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 313.84, y: 176.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1783000103
 GameObject:
@@ -2371,7 +2371,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 1778803627}
   UIPanel: {fileID: 5268977}
   gameplayPanel: {fileID: 1291213951}
-  isGameStarted: 0
+  isGameStarted: 1
   preGameWords:
   - Your keyboard is shaking... are you even ready?
   - Type fast, or be embarrassed forever!

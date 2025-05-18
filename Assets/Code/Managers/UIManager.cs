@@ -18,6 +18,10 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1;
         isGameStarted = false;
+        startPanel.SetActive(true);
+        gameOverPanel.SetActive(false);
+        UIPanel.SetActive(false);
+        gameplayPanel.SetActive(false);
     }
 
     void Update()

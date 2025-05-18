@@ -53,7 +53,7 @@ public class CircleEnemy : MonoBehaviour
         if (player_Distance <= distanceBeforeDeactivation)
         {
             DeactivateEnemy();
-            player.TakeDamage(10);
+            player.TakeDamage(25);
         }
     }
 
